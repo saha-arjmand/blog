@@ -13,8 +13,8 @@
         {{list_item}}<br>
     {% endfor %} -->
 
-    {% for list_item in list_of_values %}
-        {% include 'home/snippest/body_snippest.html' with value=list_item %}
+    {% for question in questions %}
+        {% include 'home/snippest/body_snippest.html' with value=question %}
     {% endfor %}
     
     <!-- {% include 'home/snippest/body_snippest.html' %} -->

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from home.models import Question
 
 def home_screen_view(request):
 
@@ -11,11 +12,14 @@ def home_screen_view(request):
     #         'some_number' : 123456,
     # }
 
-    list_of_values = []
-    list_of_values.append("first entry")
-    list_of_values.append("second entry")
-    list_of_values.append("third entry")
-    list_of_values.append("forth entry")
-    context['list_of_values'] = list_of_values
+    # list_of_values = []
+    # list_of_values.append("first entry")
+    # list_of_values.append("second entry")
+    # list_of_values.append("third entry")
+    # list_of_values.append("forth entry")
+    # context['list_of_values'] = list_of_values
+
+    questions = Question.objects.all()
+    context['questions'] = questions
 
     return render(request, "home/home.html", context)

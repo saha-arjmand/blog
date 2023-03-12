@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="border: 2px solid #000;">
+    <h1>This is the content block</h1>
+    <p>Here is where you put stuff that should be in the body of your website.</p>
+
+    <!-- <p>{{some_string}}</p>
+    <p>{{some_number}}</p> -->
+
+    <!-- {% for list_item in list_of_values %}
+        {{list_item}}<br>
+    {% endfor %} -->
+
+    {% for list_item in list_of_values %}
+        {% include 'home/snippest/body_snippest.html' with value=list_item %}
+    {% endfor %}
+    
+    <!-- {% include 'home/snippest/body_snippest.html' %} -->
+</div>
+
+
+{% endblock content %}

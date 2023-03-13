@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from home.models import Question
+from question.models import Question
 
-def home_screen_view(request):
+def question_view(request):
 
     context = {}
     # context['some_string'] = "this is some string that I'm passing to the view"
@@ -22,4 +22,4 @@ def home_screen_view(request):
     questions = Question.objects.all()
     context['questions'] = questions
 
-    return render(request, "home/home.html", context)
+    return render(request, "question/home.html", context)

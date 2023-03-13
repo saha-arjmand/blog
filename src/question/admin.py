@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Question
+from question.models import Question
 
 # Register your models here.
 

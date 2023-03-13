@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     # My apps
-    'home',
+    'question',
     'account',
 
     # Django apps
@@ -75,6 +75,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 

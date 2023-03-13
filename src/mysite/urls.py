@@ -7,11 +7,16 @@ from question.views import (
 )
 
 from account.views import (
-    account_view,
+    registration_view,
+)
+
+from home.views import (
+    home_view,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_view, name="home"),
     path('question/', question_view),
-    path('account/', account_view),
+    path('register/', registration_view, name="register"),
 ]

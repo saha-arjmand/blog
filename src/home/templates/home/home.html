@@ -2,11 +2,19 @@
 
 {% block content %}
 
-<h3>Registered user:</h3>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">سایت آموزش برنامه نویسی</h1>
+    <p class="lead">این یک متن فارسی جهت تست است</p>
+</div>
 
-{% for account in accounts %}
-    <p>{{account}}</p>
-{% endfor %}
+<div class="container">
+    <div class="d-flex flex-column">  <!-- Flex box -->
+        <h4>Registered user:</h4>
+        {% for account in accounts %}
+            <p>{{account}}</p>
+        {% endfor %}        
+    </div>
+</div>
 
 
 {% endblock content %}

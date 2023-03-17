@@ -7,20 +7,20 @@ from account.models import Account
 
 def create_blog_view(request):
 
-    context = {}
+	context = {}
 
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    
-    form = CreateBlogPostForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        obj = form.save(commit=False)
-        author = Account.objects.filter(email= user.email).first()
-        obj.auther = author
-        obj.save()
-        form = CreateBlogPostForm()
+	user = request.user
+	if not user.is_authenticated:
+		return redirect('must_authenticate')
 
-    context['form'] = form
+	form = CreateBlogPostForm(request.POST or None, request.FILES or None)
+	if form.is_valid():
+		obj = form.save(commit=False)
+		author = Account.objects.filter(email=user.email).first()
+		obj.author = author
+		obj.save()
+		form = CreateBlogPostForm()
 
-    return render(request, "blog/create_blog.html", context)
+	context['form'] = form
+
+	return render(request, "blog/create_blog.html", context)

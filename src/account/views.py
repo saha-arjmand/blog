@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
+from blog.models import BlogPost
+
 # from account.models import Account
 
 # def account_view(request):
@@ -67,7 +69,6 @@ def login_view(request):
     return render(request, 'account/login.html', context)
 
 
-
 def account_view(request):
     if not request.user.is_authenticated:
         return redirect("login")
@@ -92,6 +93,10 @@ def account_view(request):
         )
 
     context['account_form'] = form
+
+    blog_posts = BlogPost.objects.filter(author=request.user)
+    context['blog_posts'] = blog_posts
+
     return render(request, 'account/account.html', context)
 
 
